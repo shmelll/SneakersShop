@@ -8,9 +8,32 @@
         <servlet-name>GetStartPageServlet</servlet-name>
         <servlet-class>ru.javavision.servlet.GetIndexPageServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>GetStartPageServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AuthenticationFilter</servlet-name>
+        <servlet-class>ru.javavision.servlet.AuthenticationFilter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthenticationFilter</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Main</servlet-name>
+        <jsp-file>/WEB-INF/view/main.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Main</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
 </web-app>
