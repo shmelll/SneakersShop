@@ -17,8 +17,9 @@ public class AuthenticationFilter extends HttpServlet {
         if (uname.equals("Dima") && pass.equals("123")) {
             response.sendRedirect("/main");
         } else {
-            response.sendRedirect("/login");
+            response.sendRedirect("/main");
         }
+
 
     }
 }

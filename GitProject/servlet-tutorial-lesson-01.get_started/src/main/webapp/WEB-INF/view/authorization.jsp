@@ -53,7 +53,7 @@
                 <span class="login100-form-title p-b-48">
 						<i class="zmdi zmdi-font"></i>
 					</span>
-                <form action="login" method="get">
+
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
                     <input class="input100" type="text" name="email">
                     <span class="focus-input100" data-placeholder="Email"></span>
@@ -66,24 +66,26 @@
                     <input class="input100" type="password" name="pass">
                     <span class="focus-input100" data-placeholder="Password"></span>
                 </div>
-                    <div class="container-login100-form-btn">
-                        <div class="wrap-login100-form-btn">
-                            <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn">
-                                Login
-                            </button>
-                        </div>
+
+                <form action="login" method="get">
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+
+                            <input type="submit" value="Login" class="login100-form-btn">
+
                     </div>
-                <input type="submit" value="Login">
+                </div>
                 </form>
                 <div class="text-center p-t-115">
 						<span class="txt1">
 							Don’t have an account?
 						</span>
 
-                    <a class="txt2" href="#">
-                        Sign Up
+                    <form action="registration" method="get">
+                        <a >
+                        <input type="submit" value="Registration" class="txt2">
                     </a>
+                    </form>
                 </div>
             </form>
         </div>

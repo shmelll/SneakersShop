@@ -31,6 +31,34 @@
         <url-pattern>/main</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Authorization</servlet-name>
+        <jsp-file>/WEB-INF/view/authorization.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Authorization</servlet-name>
+        <url-pattern>/authorization</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <servlet-class>ru.javavision.servlet.RegistrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegistrationForm</servlet-name>
+        <jsp-file>/WEB-INF/view/registration.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationForm</servlet-name>
+        <url-pattern>/registrationForm</url-pattern>
+    </servlet-mapping>
+
+
 
 
 
