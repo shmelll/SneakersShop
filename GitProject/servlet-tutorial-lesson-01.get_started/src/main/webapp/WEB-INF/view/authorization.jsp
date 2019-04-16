@@ -46,7 +46,7 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form class="login100-form validate-form">
+            <form action="login" method="post" class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
 						Welcome
 					</span>
@@ -67,15 +67,13 @@
                     <span class="focus-input100" data-placeholder="Password"></span>
                 </div>
 
-                <form action="login" method="get">
-                <div class="container-login100-form-btn">
-                    <div class="wrap-login100-form-btn">
 
-                            <input type="submit" value="Login" class="login100-form-btn">
-
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                                <input type="submit" value="Login" class="login100-form-btn">
+                        </div>
                     </div>
-                </div>
-                </form>
+
                 <div class="text-center p-t-115">
 						<span class="txt1">
 							Don’t have an account?

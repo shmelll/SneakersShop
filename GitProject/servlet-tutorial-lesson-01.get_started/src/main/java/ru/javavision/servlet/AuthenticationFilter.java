@@ -11,15 +11,14 @@ import java.io.PrintWriter;
 @WebServlet(name = "AuthenticationFilter")
 public class AuthenticationFilter extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uname =(String) request.getParameter("email");
         String pass =(String) request.getParameter("pass");
         if (uname.equals("Dima") && pass.equals("123")) {
             response.sendRedirect("/main");
         } else {
-            response.sendRedirect("/main");
+            response.sendRedirect("/registration");
         }
-
 
     }
 }
