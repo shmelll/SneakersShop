@@ -78,14 +78,15 @@
 						<span class="txt1">
 							Don’t have an account?
 						</span>
-
-                    <form action="registration" method="get">
-                        <a >
-                        <input type="submit" value="Registration" class="txt2">
-                    </a>
-                    </form>
                 </div>
             </form>
+                    <form action="registration" method="get">
+                        <div align="center">
+                            <a>
+                                <input type="submit" value="Registration" class="txt2">
+                            </a>
+                        </div>
+                    </form>
         </div>
     </div>
 </div>
