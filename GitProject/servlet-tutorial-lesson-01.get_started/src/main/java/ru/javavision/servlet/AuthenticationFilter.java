@@ -46,12 +46,12 @@ public class AuthenticationFilter extends HttpServlet {
                     } else {
                         System.out.println(passInDb + "  " + pass);
                         System.out.println("Bad authorization, wrong password");
-                        //TODO add action on success authorization
+                        //TODO add action on bad authorization
                     }
                 }
             } else {
                 System.out.println("Bad authorization, user is not found");
-                //TODO add action on success authorization
+                //TODO add action on bad authorization
             }
         } catch (SQLException e) {
             e.printStackTrace();
