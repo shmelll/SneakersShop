@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page import="ru.javavision.database.Products" %>
+<%Products.fillLists();%>
+<%Products.fillProductPrices();%>
 <html>
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -35,7 +38,10 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Support</a></li>
-                    <li><a href="/authorization">My Account</a></li>
+                    <li>
+                        <form action="checkAuthorized" method="get">
+                            <input type="submit" value="My Account" >
+                        </form></li>
                     <li><a href="#">The Store</a></li>
                     <li class="last"><a href="#">Contact</a></li>
                 </ul>
@@ -47,7 +53,7 @@
         <div id="slider">
             <div id="slider-holder">
                 <ul>
-                    <li><a href="#"><img src="css/images/slide1.jpg" alt="" /></a></li>
+                    <li><a href="#"><img src="/WEB-INF/view/mainRes/css/images/slide1.jpg" alt="" /></a></li>
                     <li><a href="#"><img src="css/images/slide2.jpg" alt="" /></a></li>
                     <li><a href="#"><img src="css/images/slide1.jpg" alt="" /></a></li>
                     <li><a href="#"><img src="css/images/slide2.jpg" alt="" /></a></li>
@@ -118,11 +124,12 @@
                             <ul>
                                 <li>
                                     <div class="image">
-                                        <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
+                                        <a href="#"><img src="/view/mainRes/css/images/image1.jpg" alt="" /></a>
                                     </div>
+
                                     <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
+                                        Name: <span><%=Products.writeName()%></span><br />
+                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
                                     <p class="price">Wholesale Price: <strong>53 USD</strong></p>
@@ -132,8 +139,8 @@
                                         <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
+                                        Name: <span><%=Products.writeName()%></span><br />
+                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
                                     <p class="price">Wholesale Price: <strong>53 USD</strong></p>
@@ -143,8 +150,8 @@
                                         <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
+                                        Name: <span><%=Products.writeName()%></span><br />
+                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
                                     <p class="price">Wholesale Price: <strong>53 USD</strong></p>
@@ -154,8 +161,8 @@
                                         <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
+                                        Name: <span><%=Products.writeName()%></span><br />
+                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
                                     <p class="price">Wholesale Price: <strong>53 USD</strong></p>
@@ -165,8 +172,8 @@
                                         <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
+                                        Name: <span><%=Products.writeName()%></span><br />
+                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
                                     <p class="price">Wholesale Price: <strong>53 USD</strong></p>
@@ -176,8 +183,8 @@
                                         <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
+                                        Name: <span><%=Products.writeName()%></span><br />
+                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
                                     <p class="price">Wholesale Price: <strong>53 USD</strong></p>
@@ -187,8 +194,8 @@
                                         <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
+                                        Name: <span><%=Products.writeName()%></span><br />
+                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
                                     <p class="price">Wholesale Price: <strong>53 USD</strong></p>
@@ -198,8 +205,8 @@
                                         <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
+                                        Name: <span><%=Products.writeName()%></span><br />
+                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
                                     <p class="price">Wholesale Price: <strong>53 USD</strong></p>
@@ -514,17 +521,6 @@
 
                 <!-- Footer -->
                 <div id="footer">
-                    <div class="left">
-                        <a href="#">Home</a>
-                        <span>|</span>
-                        <a href="#">Support</a>
-                        <span>|</span>
-                        <a href="/registration">My Account</a>
-                        <span>|</span>
-                        <a href="#">The Store</a>
-                        <span>|</span>
-                        <a href="#">Contact</a>
-                    </div>
                     <div class="right">
                         &copy; Sitename.com. Design by <a href="http://chocotemplates.com" target="_blank" title="CSS Templates">ChocoTemplates.com</a>
                     </div>

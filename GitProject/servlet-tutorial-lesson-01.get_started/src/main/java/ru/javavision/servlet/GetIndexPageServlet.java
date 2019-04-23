@@ -1,5 +1,7 @@
 package ru.javavision.servlet;
 
+import ru.javavision.database.Products;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,9 +14,7 @@ public class GetIndexPageServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
         req.getRequestDispatcher(index).forward(req, resp);
-
     }
 }
 

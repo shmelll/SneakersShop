@@ -59,6 +59,18 @@
         <url-pattern>/registrationForm</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CheckAuthorized</servlet-name>
+        <servlet-class>ru.javavision.servlet.CheckAuthorizedServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckAuthorized</servlet-name>
+        <url-pattern>/checkAuthorized</url-pattern>
+    </servlet-mapping>
+
+
+
+
 
 
 
