@@ -23,7 +23,7 @@ public class CheckAuthorizedServlet extends HttpServlet {
             response.sendRedirect("authorization");
         }
         else {
-            response.sendRedirect("/main"); //Редирект на личный кабинет
+            response.sendRedirect("/main"); //TODO Редирект на личный кабинет
         }
     }
 }

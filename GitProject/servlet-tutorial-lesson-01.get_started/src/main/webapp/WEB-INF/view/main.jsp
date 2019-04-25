@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 22.12.2016
@@ -8,7 +9,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="ru.javavision.database.Products" %>
 <%Products.fillLists();%>
-<%Products.fillProductPrices();%>
 <html>
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -124,59 +124,24 @@
                             <ul>
                                 <li>
                                     <div class="image">
-                                        <a href="#"><img src="/view/mainRes/css/images/image1.jpg" alt="" /></a>
+                                        <img src="${pageContext.request.contextPath}/resources/image1.jpg" alt=""/>
                                     </div>
 
                                     <p>
                                         Name: <span><%=Products.writeName()%></span><br />
-                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
                                 </li>
                                 <li>
                                     <div class="image">
-                                        <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
+                                        <a href="#"><img src="${pageContext.request.contextPath}/WEB-INF/view/mainRes/css/images/image2.jpg" alt="" /></a>
                                     </div>
                                     <p>
                                         Name: <span><%=Products.writeName()%></span><br />
-                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Name: <span><%=Products.writeName()%></span><br />
-                                        Price : <span><%=Products.writePrice()%></span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Name: <span><%=Products.writeName()%></span><br />
-                                        Price : <span><%=Products.writePrice()%></span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Name: <span><%=Products.writeName()%></span><br />
-                                        Price : <span><%=Products.writePrice()%></span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
                                 </li>
                                 <li>
                                     <div class="image">
@@ -184,10 +149,39 @@
                                     </div>
                                     <p>
                                         Name: <span><%=Products.writeName()%></span><br />
-                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
+                                </li>
+                                <li>
+                                    <div class="image">
+                                        <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
+                                    </div>
+                                    <p>
+                                        Name: <span><%=Products.writeName()%></span><br />
+                                        Brand Name: <a href="#">Adidas Shoes</a>
+                                    </p>
+                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
+                                </li>
+                                <li>
+                                    <div class="image">
+                                        <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
+                                    </div>
+                                    <p>
+                                        Name: <span><%=Products.writeName()%></span><br />
+                                        Brand Name: <a href="#">Adidas Shoes</a>
+                                    </p>
+                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
+                                </li>
+                                <li>
+                                    <div class="image">
+                                        <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
+                                    </div>
+                                    <p>
+                                        Name: <span><%=Products.writeName()%></span><br />
+                                        Brand Name: <a href="#">Adidas Shoes</a>
+                                    </p>
+                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
                                 </li>
                                 <li>
                                     <div class="image">
@@ -195,10 +189,9 @@
                                     </div>
                                     <p>
                                         Name: <span><%=Products.writeName()%></span><br />
-                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
                                 </li>
                                 <li>
                                     <div class="image">
@@ -206,10 +199,9 @@
                                     </div>
                                     <p>
                                         Name: <span><%=Products.writeName()%></span><br />
-                                        Price : <span><%=Products.writePrice()%></span><br />
                                         Brand Name: <a href="#">Adidas Shoes</a>
                                     </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
                                 </li>
                             </ul>
                             <div class="cl">&nbsp;</div>
