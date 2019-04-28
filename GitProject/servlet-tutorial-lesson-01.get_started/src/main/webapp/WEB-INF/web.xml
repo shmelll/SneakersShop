@@ -68,6 +68,15 @@
         <url-pattern>/checkAuthorized</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddToCart</servlet-name>
+        <servlet-class>ru.javavision.servlet.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddToCart</servlet-name>
+        <url-pattern>/AddToCart</url-pattern>
+    </servlet-mapping>
+
 
 
 

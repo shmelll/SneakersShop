@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="ru.javavision.database.Products" %>
+<%@page import="ru.javavision.database.Products,ru.javavision.Models.Product" %>
 <%Products.fillLists();%>
 <html>
 <head>
@@ -40,8 +40,8 @@
                     <li><a href="#">Support</a></li>
                     <li>
                         <form action="checkAuthorized" method="get">
-                            <input type="submit" value="My Account" >
-                        </form></li>
+                    <input type="submit" value="My Account" >
+                </form></li>
                     <li><a href="#">The Store</a></li>
                     <li class="last"><a href="#">Contact</a></li>
                 </ul>
@@ -89,7 +89,7 @@
             <div class="right">
 				<span class="cart">
 					<a href="#" class="cart-ico">&nbsp;</a>
-					<strong>$0.00</strong>
+					<strong>$<%=Product.CountPrice()%></strong>
 				</span>
                 <span class="left more-links">
 					<a href="#">Checkout</a>
@@ -118,91 +118,149 @@
                 <div class="tabbed">
 
                     <!-- First Tab Content -->
+
                     <div class="tab-content" style="display:block;">
                         <div class="items">
                             <div class="cl">&nbsp;</div>
                             <ul>
+                                <form action="AddToCart" method="post">
                                 <li>
                                     <div class="image">
                                         <img src="${pageContext.request.contextPath}/resources/image1.jpg" alt=""/>
                                     </div>
 
                                     <p>
-                                        Name: <span><%=Products.writeName()%></span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
+                                        <input type="hidden" name="productName" value="${Products.writeName(0)}"/>
+                                        Name: <span><%=Products.writeName(0)%></span><br />
+                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(0)}"/>
+                                        Quantity Size: <span><%=Products.writeQuantitySize(0)%></span><br />
                                     </p>
-                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
+
+                                    <input type="hidden" name="productPrice" value="${Products.writePrice(0)}"/>
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(0)%></strong></p>
+                                    <input type="hidden" name="productId" value="${Products.getProductidInDB(0)}"/>
+                                    <input type="submit" value="Add to cart" >
                                 </li>
+                                </form>
+                                <form action="AddToCart" method="post">
                                 <li>
                                     <div class="image">
                                         <a href="#"><img src="${pageContext.request.contextPath}/WEB-INF/view/mainRes/css/images/image2.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Name: <span><%=Products.writeName()%></span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
+                                        <input type="hidden" name="productName" value="${Products.writeName(1)}"/>
+                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(1)}"/>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(1)}"/>
+                                        <input type="hidden" name="productPrice" value="${Products.writePrice(1)}"/>
+                                        Name: <span><%=Products.writeName(1)%></span><br />
+                                        Quantity Size: <span><%=Products.writeQuantitySize(1)%></span><br />
                                     </p>
-                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(1)%></strong></p>
+                                    <input type="submit" value="Add to cart" >
                                 </li>
+                                </form>
+                                <form action="AddToCart" method="post">
                                 <li>
                                     <div class="image">
                                         <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Name: <span><%=Products.writeName()%></span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
+                                        <input type="hidden" name="productName" value="${Products.writeName(2)}"/>
+                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(2)}"/>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(2)}"/>
+                                        <input type="hidden" name="productPrice" value="${Products.writePrice(2)}"/>
+                                        Name: <span><%=Products.writeName(2)%></span><br />
+                                        Quantity Size: <span><%=Products.writeQuantitySize(2)%></span><br />
                                     </p>
-                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(2)%></strong></p>
+                                    <input type="submit" value="Add to cart" >
                                 </li>
+                                </form>
+                                <form action="AddToCart" method="post">
                                 <li>
                                     <div class="image">
                                         <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Name: <span><%=Products.writeName()%></span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
+                                        <input type="hidden" name="productName" value="${Products.writeName(3)}"/>
+                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(3)}"/>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(3)}"/>
+                                        <input type="hidden" name="productPrice" value="${Products.writePrice(3)}"/>
+                                        Name: <span><%=Products.writeName(3)%></span><br />
+                                        Quantity Size: <span><%=Products.writeQuantitySize(3)%></span><br />
                                     </p>
-                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(3)%></strong></p>
+                                    <input type="submit" value="Add to cart" >
                                 </li>
+                                </form>
+                                <form action="AddToCart" method="post">
                                 <li>
                                     <div class="image">
                                         <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Name: <span><%=Products.writeName()%></span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
+                                        <input type="hidden" name="productName" value="${Products.writeName(4)}"/>
+                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(4)}"/>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(4)}"/>
+                                        <input type="hidden" name="productPrice" value="${Products.writePrice(4)}"/>
+                                        Name: <span><%=Products.writeName(4)%></span><br />
+                                        Quantity Size: <span><%=Products.writeQuantitySize(4)%></span><br />
+                                        <input type="submit" value="Add to cart" >
                                     </p>
-                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(4)%></strong></p>
                                 </li>
+                                </form>
+                                <form action="AddToCart" method="post">
                                 <li>
                                     <div class="image">
                                         <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Name: <span><%=Products.writeName()%></span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
+                                        <input type="hidden" name="productName" value="${Products.writeName(5)}"/>
+                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(5)}"/>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(5)}"/>
+                                        <input type="hidden" name="productPrice" value="${Products.writePrice(5)}"/>
+                                        Name: <span><%=Products.writeName(5)%></span><br />
+                                        Quantity Size: <span><%=Products.writeQuantitySize(5)%></span><br />
+                                        <input type="submit" value="Add to cart" >
                                     </p>
-                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(5)%></strong></p>
                                 </li>
+                                </form>
+                                <form action="AddToCart" method="post">
                                 <li>
                                     <div class="image">
                                         <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Name: <span><%=Products.writeName()%></span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
+                                        <input type="hidden" name="productName" value="${Products.writeName(6)}"/>
+                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(6)}"/>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(6)}"/>
+                                        <input type="hidden" name="productPrice" value="${Products.writePrice(6)}"/>
+                                        Name: <span><%=Products.writeName(6)%></span><br />
+                                        Quantity Size: <span><%=Products.writeQuantitySize(6)%></span><br />
+                                        <input type="submit" value="Add to cart" >
                                     </p>
-                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(6)%></strong></p>
                                 </li>
+                                </form>
+                                <form action="AddToCart" method="post">
                                 <li>
                                     <div class="image">
                                         <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
                                     </div>
                                     <p>
-                                        Name: <span><%=Products.writeName()%></span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
+                                        <input type="hidden" name="productName" value="${Products.writeName(7)}"/>
+                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(7)}"/>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(7)}"/>
+                                        <input type="hidden" name="productPrice" value="${Products.writePrice(7)}"/>
+                                        Name: <span><%=Products.writeName(7)%></span><br />
+                                        Quantity Size: <span><%=Products.writeQuantitySize(7)%></span><br />
+                                        <input type="submit" value="Add to cart" >
                                     </p>
-                                    <p class="price">Wholesale Price: <strong><%=Products.writePrice()%></strong></p>
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(7)%></strong></p>
                                 </li>
+                                </form>
                             </ul>
                             <div class="cl">&nbsp;</div>
                         </div>

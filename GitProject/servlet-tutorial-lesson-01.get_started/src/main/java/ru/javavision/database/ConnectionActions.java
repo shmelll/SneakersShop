@@ -32,13 +32,21 @@ public class ConnectionActions {
     public static void closeConnection(Connection c)
     {
         try {
-            c.close();
-            if(c.isClosed())
+            if(!c.isClosed())
             {
+                c.close();
                 System.out.println("Connection closed");
             }
         } catch (SQLException e) {
             System.err.println(e);
         }
+    }
+    public static boolean CheckConnection(Connection c){
+        try {
+            if(c.isClosed()){return false;}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 }
