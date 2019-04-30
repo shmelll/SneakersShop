@@ -1,5 +1,8 @@
 package ru.javavision.database;
 
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,8 +20,7 @@ public class Products {
     static List<String> productPrices = new ArrayList<>();
     // static List<String> picturesId = new ArrayList<>();
     static List<String> productId = new ArrayList<>();
-    static Map<Integer, List> productQuanSize = new HashMap<Integer, List>();
-
+    static Map<Integer, List<Integer>> productQuanSize = new HashMap<Integer, List<Integer>>();
 
     public static void fillLists() throws SQLException {
         try {
@@ -43,7 +45,7 @@ public class Products {
             for (int i = 0; i < productId.size(); i++) {
                 String sqlFindQuantitySize = "SELECT size from stock s  INNER JOIN product p ON s.productid = p.productid WHERE (s.productid=" + productId.get(i) + ") AND (quantity = 1)";
                 rs = stmt.executeQuery(sqlFindQuantitySize);
-                List a = new ArrayList<>();
+                List<Integer> a = new ArrayList<>();
                 while (rs.next()) {
                     a.add(Integer.parseInt(rs.getString("size")));
                 }
@@ -79,8 +81,11 @@ public class Products {
         for (int i = 0; i < q.size(); i++) {
             s1 +=" "+ q.get(i);
         }
-        System.out.println(s1);
         return s1;
+    }
+
+    public static List<Integer> getSizesList(int c) {
+        return productQuanSize.get(c);
     }
 
 

@@ -8,6 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="ru.javavision.database.Products,ru.javavision.Models.Product" %>
+<%@ page import="java.util.List" %>
 <%Products.fillLists();%>
 <html>
 <head>
@@ -17,10 +18,6 @@
 
     <style type="text/css" media="screen">
         <%@ include file="/WEB-INF/view/mainRes/css/style.css" %>
-        <%@ include file="/WEB-INF/view/mainRes/js/jquery.jcarousel.pack.js" %>
-        <%@ include file="/WEB-INF/view/mainRes/js/jquery.slide.js" %>
-        <%@ include file="/WEB-INF/view/mainRes/js/jquery-1.4.1.min.js" %>
-        <%@ include file="/WEB-INF/view/mainRes/js/jquery-func.js" %>
         .tabbed { height:420px; }
     </style>
 
@@ -119,21 +116,31 @@
 
                     <!-- First Tab Content -->
 
-                    <div class="tab-content" style="display:block;">
+                    <div class="tab-content" style="display:block">
                         <div class="items">
                             <div class="cl">&nbsp;</div>
                             <ul>
                                 <form action="AddToCart" method="post">
                                 <li>
                                     <div class="image">
-                                        <img src="${pageContext.request.contextPath}/resources/image1.jpg" alt=""/>
+                                        <img src="/resources/image1.jpg" alt=""/>
                                     </div>
 
-                                    <p>
+                                    <p><span>
                                         <input type="hidden" name="productName" value="${Products.writeName(0)}"/>
                                         Name: <span><%=Products.writeName(0)%></span><br />
                                         <input type="hidden" name="productSize" value="${Products.writeQuantitySize(0)}"/>
-                                        Quantity Size: <span><%=Products.writeQuantitySize(0)%></span><br />
+                                        <% List<Integer> a = Products.getSizesList(0);%>
+                                        Quantity Size:
+                                        <% a = Products.getSizesList(0);
+                                        if(a.size()>0){ %>
+                                        <select>
+                                            <%for(int i=0;i<a.size();i++){%>
+                                            <option><%=a.get(i).toString()%></option>
+                                            <%}}%>
+                                        </select>
+                                        <% if(a.size()==0){ %>
+                                        Not available <%}%></span>
                                     </p>
 
                                     <input type="hidden" name="productPrice" value="${Products.writePrice(0)}"/>
@@ -143,123 +150,203 @@
                                 </li>
                                 </form>
                                 <form action="AddToCart" method="post">
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="${pageContext.request.contextPath}/WEB-INF/view/mainRes/css/images/image2.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        <input type="hidden" name="productName" value="${Products.writeName(1)}"/>
-                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(1)}"/>
-                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(1)}"/>
+                                    <li>
+                                        <div class="image">
+                                            <img src="/resources/image1.jpg" alt=""/>
+                                        </div>
+
+                                        <p>
+                                            <input type="hidden" name="productName" value="${Products.writeName(1)}"/>
+                                            Name: <span><%=Products.writeName(1)%></span><br />
+                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(1)}"/>
+                                            Quantity Size:
+                                            <% a = Products.getSizesList(1);
+                                                if(a.size()>0){ %>
+                                            <select>
+                                                <%for(int i=0;i<a.size();i++){%>
+                                                <option><%=a.get(i).toString()%></option>
+                                                <%}}%>
+                                            </select>
+                                            <% if(a.size()==0){ %>
+                                            Not available <%}%>
+                                        </p>
+
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(1)}"/>
-                                        Name: <span><%=Products.writeName(1)%></span><br />
-                                        Quantity Size: <span><%=Products.writeQuantitySize(1)%></span><br />
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(1)%></strong></p>
-                                    <input type="submit" value="Add to cart" >
-                                </li>
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(1)%></strong></p>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(1)}"/>
+                                        <input type="submit" value="Add to cart" >
+                                    </li>
                                 </form>
                                 <form action="AddToCart" method="post">
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        <input type="hidden" name="productName" value="${Products.writeName(2)}"/>
-                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(2)}"/>
-                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(2)}"/>
+                                    <li>
+                                        <div class="image">
+                                            <img src="/resources/image1.jpg" alt=""/>
+                                        </div>
+
+                                        <p>
+                                            <input type="hidden" name="productName" value="${Products.writeName(2)}"/>
+                                            Name: <span><%=Products.writeName(2)%></span><br />
+                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(2)}"/>
+                                            Quantity Size:
+                                            <% a = Products.getSizesList(2);
+                                                if(a.size()>0){ %>
+                                            <select>
+                                                <%for(int i=0;i<a.size();i++){%>
+                                                <option><%=a.get(i).toString()%></option>
+                                                <%}}%>
+                                            </select>
+                                            <% if(a.size()==0){ %>
+                                            Not available <%}%>
+                                        </p>
+
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(2)}"/>
-                                        Name: <span><%=Products.writeName(2)%></span><br />
-                                        Quantity Size: <span><%=Products.writeQuantitySize(2)%></span><br />
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(2)%></strong></p>
-                                    <input type="submit" value="Add to cart" >
-                                </li>
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(2)%></strong></p>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(2)}"/>
+                                        <input type="submit" value="Add to cart" >
+                                    </li>
                                 </form>
                                 <form action="AddToCart" method="post">
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        <input type="hidden" name="productName" value="${Products.writeName(3)}"/>
-                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(3)}"/>
-                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(3)}"/>
+                                    <li>
+                                        <div class="image">
+                                            <img src="/resources/image1.jpg" alt=""/>
+                                        </div>
+
+                                        <p>
+                                            <input type="hidden" name="productName" value="${Products.writeName(3)}"/>
+                                            Name: <span><%=Products.writeName(3)%></span><br />
+                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(3)}"/>
+                                            Quantity Size:
+                                            <% a = Products.getSizesList(3);
+                                                if(a.size()>0){ %>
+                                            <select>
+                                                <%for(int i=0;i<a.size();i++){%>
+                                                <option><%=a.get(i).toString()%></option>
+                                                <%}}%>
+                                            </select>
+                                            <% if(a.size()==0){ %>
+                                            Not available <%}%>
+                                        </p>
+
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(3)}"/>
-                                        Name: <span><%=Products.writeName(3)%></span><br />
-                                        Quantity Size: <span><%=Products.writeQuantitySize(3)%></span><br />
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(3)%></strong></p>
-                                    <input type="submit" value="Add to cart" >
-                                </li>
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(3)%></strong></p>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(3)}"/>
+                                        <input type="submit" value="Add to cart" >
+                                    </li>
                                 </form>
-                                <form action="AddToCart" method="post">
-                                <li>
+                                <form action="AddToCart" method="post" >
+                                    <li>
+                                    <li>
+
                                     <div class="image">
-                                        <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        <input type="hidden" name="productName" value="${Products.writeName(4)}"/>
-                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(4)}"/>
-                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(4)}"/>
+                                            <img src="/resources/image1.jpg" alt=""/>
+                                        </div>
+
+                                        <p>
+                                            <input type="hidden" name="productName" value="${Products.writeName(4)}"/>
+                                            Name: <span><%=Products.writeName(4)%></span><br />
+                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(4)}"/>
+                                            Quantity Size:
+                                            <% a = Products.getSizesList(4);
+                                                if(a.size()>0){ %>
+                                            <select>
+                                                <%for(int i=0;i<a.size();i++){%>
+                                                <option><%=a.get(i).toString()%></option>
+                                                <%}}%>
+                                            </select>
+                                            <% if(a.size()==0){ %>
+                                            Not available <%}%>
+                                        </p>
+
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(4)}"/>
-                                        Name: <span><%=Products.writeName(4)%></span><br />
-                                        Quantity Size: <span><%=Products.writeQuantitySize(4)%></span><br />
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(4)%></strong></p>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(4)}"/>
                                         <input type="submit" value="Add to cart" >
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(4)%></strong></p>
                                 </li>
+                                    </li>
                                 </form>
                                 <form action="AddToCart" method="post">
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        <input type="hidden" name="productName" value="${Products.writeName(5)}"/>
-                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(5)}"/>
-                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(5)}"/>
+                                    <li>
+                                        <div class="image">
+                                            <img src="/resources/image1.jpg" alt=""/>
+                                        </div>
+
+                                        <p>
+                                            <input type="hidden" name="productName" value="${Products.writeName(5)}"/>
+                                            Name: <span><%=Products.writeName(5)%></span><br />
+                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(5)}"/>
+                                            Quantity Size:
+                                            <% a = Products.getSizesList(5);
+                                                if(a.size()>0){ %>
+                                            <select>
+                                                <%for(int i=0;i<a.size();i++){%>
+                                                <option><%=a.get(i).toString()%></option>
+                                                <%}}%>
+                                            </select>
+                                            <% if(a.size()==0){ %>
+                                            Not available <%}%>
+                                        </p>
+
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(5)}"/>
-                                        Name: <span><%=Products.writeName(5)%></span><br />
-                                        Quantity Size: <span><%=Products.writeQuantitySize(5)%></span><br />
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(5)%></strong></p>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(5)}"/>
                                         <input type="submit" value="Add to cart" >
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(5)%></strong></p>
-                                </li>
+                                    </li>
                                 </form>
                                 <form action="AddToCart" method="post">
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        <input type="hidden" name="productName" value="${Products.writeName(6)}"/>
-                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(6)}"/>
-                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(6)}"/>
+                                    <li>
+                                        <div class="image">
+                                            <img src="/resources/image1.jpg" alt=""/>
+                                        </div>
+
+                                        <p>
+                                            <input type="hidden" name="productName" value="${Products.writeName(6)}"/>
+                                            Name: <span><%=Products.writeName(6)%></span><br />
+                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(6)}"/>
+                                            Quantity Size:
+                                            <% a = Products.getSizesList(6);
+                                                if(a.size()>0){ %>
+                                            <select>
+                                                <%for(int i=0;i<a.size();i++){%>
+                                                <option><%=a.get(i).toString()%></option>
+                                                <%}}%>
+                                            </select>
+                                            <% if(a.size()==0){ %>
+                                            Not available <%}%>
+                                        </p>
+
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(6)}"/>
-                                        Name: <span><%=Products.writeName(6)%></span><br />
-                                        Quantity Size: <span><%=Products.writeQuantitySize(6)%></span><br />
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(6)%></strong></p>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(6)}"/>
                                         <input type="submit" value="Add to cart" >
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(6)%></strong></p>
-                                </li>
+                                    </li>
                                 </form>
                                 <form action="AddToCart" method="post">
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        <input type="hidden" name="productName" value="${Products.writeName(7)}"/>
-                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(7)}"/>
-                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(7)}"/>
+                                    <li>
+                                        <div class="image">
+                                            <img src="/resources/image1.jpg" alt=""/>
+                                        </div>
+
+                                        <p>
+                                            <input type="hidden" name="productName" value="${Products.writeName(7)}"/>
+                                            Name: <span><%=Products.writeName(7)%></span><br />
+                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(7)}"/>
+                                            Quantity Size:
+                                            <% a = Products.getSizesList(7);
+                                                if(a.size()>0){ %>
+                                            <select>
+                                                <%for(int i=0;i<a.size();i++){%>
+                                                <option><%=a.get(i).toString()%></option>
+                                                <%}}%>
+                                            </select>
+                                            <% if(a.size()==0){ %>
+                                            Not available <%}%>
+                                        </p>
+
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(7)}"/>
-                                        Name: <span><%=Products.writeName(7)%></span><br />
-                                        Quantity Size: <span><%=Products.writeQuantitySize(7)%></span><br />
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(7)%></strong></p>
+                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(7)}"/>
                                         <input type="submit" value="Add to cart" >
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(7)%></strong></p>
-                                </li>
+                                    </li>
                                 </form>
                             </ul>
                             <div class="cl">&nbsp;</div>
@@ -267,292 +354,7 @@
                     </div>
                     <!-- End First Tab Content -->
 
-                    <!-- Second Tab Content -->
-                    <div class="tab-content">
-                        <div class="items">
-                            <div class="cl">&nbsp;</div>
-                            <ul>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                            </ul>
-                            <div class="cl">&nbsp;</div>
-                        </div>
-                    </div>
-                    <!-- End Second Tab Content -->
 
-                    <!-- Third Tab Content -->
-                    <div class="tab-content">
-                        <div class="items">
-                            <div class="cl">&nbsp;</div>
-                            <ul>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image3.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image4.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image2.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <a href="#"><img src="css/images/image1.jpg" alt="" /></a>
-                                    </div>
-                                    <p>
-                                        Item Number: <span>125515</span><br />
-                                        Size List : <span>8/8.5/9.5/10/11</span><br />
-                                        Brand Name: <a href="#">Adidas Shoes</a>
-                                    </p>
-                                    <p class="price">Wholesale Price: <strong>53 USD</strong></p>
-                                </li>
-                            </ul>
-                            <div class="cl">&nbsp;</div>
-                        </div>
-                    </div>
-                    <!-- End Third Tab Content -->
 
                 </div>
 
