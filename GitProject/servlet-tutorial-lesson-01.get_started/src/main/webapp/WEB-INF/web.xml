@@ -77,6 +77,24 @@
         <url-pattern>/AddToCart</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Checkout</servlet-name>
+        <servlet-class>ru.javavision.servlet.CheckoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Checkout</servlet-name>
+        <url-pattern>/Checkout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Cart</servlet-name>
+        <jsp-file>/WEB-INF/view/cart.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Cart</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+
 
 
 

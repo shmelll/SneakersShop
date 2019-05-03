@@ -89,7 +89,10 @@
 					<strong>$<%=Product.CountPrice()%></strong>
 				</span>
                 <span class="left more-links">
-					<a href="#">Checkout</a>
+
+                    <form action="Checkout" method="post">
+                    <input type="submit" value="Checkout" >
+                    </form>
 					<a href="#">Details</a>
 				</span>
             </div>
@@ -128,25 +131,32 @@
 
                                     <p><span>
                                         <input type="hidden" name="productName" value="${Products.writeName(0)}"/>
-                                        Name: <span><%=Products.writeName(0)%></span><br />
                                         <input type="hidden" name="productSize" value="${Products.writeQuantitySize(0)}"/>
+                                        Name: <span><%=Products.writeName(0)%></span><br />
                                         <% List<Integer> a = Products.getSizesList(0);%>
                                         Quantity Size:
                                         <% a = Products.getSizesList(0);
-                                        if(a.size()>0){ %>
-                                        <select>
-                                            <%for(int i=0;i<a.size();i++){%>
-                                            <option><%=a.get(i).toString()%></option>
-                                            <%}}%>
-                                        </select>
-                                        <% if(a.size()==0){ %>
-                                        Not available <%}%></span>
+                                                if(a.size()>0){ %>
+                                            <select>
+                                                    <%for(int i=0;i<a.size();i++){%>
+                                                <option><%=a.get(i).toString()%></option>
                                     </p>
+                                    <%}%>
+                                    </select>
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(0)%></strong></p>
+                                    <input type="submit" value="Add to cart" >
+                                    <%}%>
+
+                                    <% if(a.size()==0){ %>
+                                    Not available
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(0)%></strong></p>
+                                    <input type="submit" value="Add to cart" disabled="disabled">
+                                    </p>
+                                    <%}%>
+
 
                                     <input type="hidden" name="productPrice" value="${Products.writePrice(0)}"/>
-                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(0)%></strong></p>
                                     <input type="hidden" name="productId" value="${Products.getProductidInDB(0)}"/>
-                                    <input type="submit" value="Add to cart" >
                                 </li>
                                 </form>
                                 <form action="AddToCart" method="post">
@@ -163,18 +173,25 @@
                                             <% a = Products.getSizesList(1);
                                                 if(a.size()>0){ %>
                                             <select>
-                                                <%for(int i=0;i<a.size();i++){%>
+                                                    <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
-                                                <%}}%>
-                                            </select>
-                                            <% if(a.size()==0){ %>
-                                            Not available <%}%>
                                         </p>
+                                        <%}%>
+                                        </select>
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(1)%></strong></p>
+                                        <input type="submit" value="Add to cart" >
+                                        <%}%>
+
+                                        <% if(a.size()==0){ %>
+                                        Not available
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(1)%></strong></p>
+                                        <input type="submit" value="Add to cart" disabled="disabled">
+                                        </p>
+                                        <%}%>
+
 
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(1)}"/>
-                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(1)%></strong></p>
                                         <input type="hidden" name="productId" value="${Products.getProductidInDB(1)}"/>
-                                        <input type="submit" value="Add to cart" >
                                     </li>
                                 </form>
                                 <form action="AddToCart" method="post">
@@ -191,18 +208,25 @@
                                             <% a = Products.getSizesList(2);
                                                 if(a.size()>0){ %>
                                             <select>
-                                                <%for(int i=0;i<a.size();i++){%>
+                                                    <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
-                                                <%}}%>
-                                            </select>
-                                            <% if(a.size()==0){ %>
-                                            Not available <%}%>
                                         </p>
+                                        <%}%>
+                                        </select>
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(2)%></strong></p>
+                                        <input type="submit" value="Add to cart" >
+                                        <%}%>
+
+                                        <% if(a.size()==0){ %>
+                                        Not available
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(2)%></strong></p>
+                                        <input type="submit" value="Add to cart" disabled="disabled">
+                                        </p>
+                                        <%}%>
+
 
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(2)}"/>
-                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(2)%></strong></p>
                                         <input type="hidden" name="productId" value="${Products.getProductidInDB(2)}"/>
-                                        <input type="submit" value="Add to cart" >
                                     </li>
                                 </form>
                                 <form action="AddToCart" method="post">
@@ -219,18 +243,25 @@
                                             <% a = Products.getSizesList(3);
                                                 if(a.size()>0){ %>
                                             <select>
-                                                <%for(int i=0;i<a.size();i++){%>
+                                                    <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
-                                                <%}}%>
-                                            </select>
-                                            <% if(a.size()==0){ %>
-                                            Not available <%}%>
                                         </p>
+                                        <%}%>
+                                        </select>
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(3)%></strong></p>
+                                        <input type="submit" value="Add to cart" >
+                                        <%}%>
+
+                                        <% if(a.size()==0){ %>
+                                        Not available
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(3)%></strong></p>
+                                        <input type="submit" value="Add to cart" disabled="disabled">
+                                        </p>
+                                        <%}%>
+
 
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(3)}"/>
-                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(3)%></strong></p>
                                         <input type="hidden" name="productId" value="${Products.getProductidInDB(3)}"/>
-                                        <input type="submit" value="Add to cart" >
                                     </li>
                                 </form>
                                 <form action="AddToCart" method="post" >
@@ -249,18 +280,25 @@
                                             <% a = Products.getSizesList(4);
                                                 if(a.size()>0){ %>
                                             <select>
-                                                <%for(int i=0;i<a.size();i++){%>
+                                                    <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
-                                                <%}}%>
-                                            </select>
-                                            <% if(a.size()==0){ %>
-                                            Not available <%}%>
                                         </p>
+                                    <%}%>
+                                    </select>
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(4)%></strong></p>
+                                    <input type="submit" value="Add to cart" >
+                                    <%}%>
 
-                                        <input type="hidden" name="productPrice" value="${Products.writePrice(4)}"/>
-                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(4)%></strong></p>
-                                        <input type="hidden" name="productId" value="${Products.getProductidInDB(4)}"/>
-                                        <input type="submit" value="Add to cart" >
+                                    <% if(a.size()==0){ %>
+                                    Not available
+                                    <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(4)%></strong></p>
+                                    <input type="submit" value="Add to cart" disabled="disabled">
+                                    </p>
+                                    <%}%>
+
+
+                                    <input type="hidden" name="productPrice" value="${Products.writePrice(4)}"/>
+                                    <input type="hidden" name="productId" value="${Products.getProductidInDB(4)}"/>
                                 </li>
                                     </li>
                                 </form>
@@ -278,18 +316,25 @@
                                             <% a = Products.getSizesList(5);
                                                 if(a.size()>0){ %>
                                             <select>
-                                                <%for(int i=0;i<a.size();i++){%>
+                                                    <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
-                                                <%}}%>
-                                            </select>
-                                            <% if(a.size()==0){ %>
-                                            Not available <%}%>
                                         </p>
+                                        <%}%>
+                                        </select>
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(5)%></strong></p>
+                                        <input type="submit" value="Add to cart" >
+                                        <%}%>
+
+                                        <% if(a.size()==0){ %>
+                                        Not available
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(5)%></strong></p>
+                                        <input type="submit" value="Add to cart" disabled="disabled">
+                                        </p>
+                                        <%}%>
+
 
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(5)}"/>
-                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(5)%></strong></p>
                                         <input type="hidden" name="productId" value="${Products.getProductidInDB(5)}"/>
-                                        <input type="submit" value="Add to cart" >
                                     </li>
                                 </form>
                                 <form action="AddToCart" method="post">
@@ -306,18 +351,25 @@
                                             <% a = Products.getSizesList(6);
                                                 if(a.size()>0){ %>
                                             <select>
-                                                <%for(int i=0;i<a.size();i++){%>
+                                                    <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
-                                                <%}}%>
-                                            </select>
-                                            <% if(a.size()==0){ %>
-                                            Not available <%}%>
                                         </p>
+                                        <%}%>
+                                        </select>
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(6)%></strong></p>
+                                        <input type="submit" value="Add to cart" >
+                                        <%}%>
+
+                                        <% if(a.size()==0){ %>
+                                        Not available
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(6)%></strong></p>
+                                        <input type="submit" value="Add to cart" disabled="disabled">
+                                        </p>
+                                        <%}%>
+
 
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(6)}"/>
-                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(6)%></strong></p>
                                         <input type="hidden" name="productId" value="${Products.getProductidInDB(6)}"/>
-                                        <input type="submit" value="Add to cart" >
                                     </li>
                                 </form>
                                 <form action="AddToCart" method="post">
@@ -334,18 +386,25 @@
                                             <% a = Products.getSizesList(7);
                                                 if(a.size()>0){ %>
                                             <select>
-                                                <%for(int i=0;i<a.size();i++){%>
+                                                    <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
-                                                <%}}%>
-                                            </select>
-                                            <% if(a.size()==0){ %>
-                                            Not available <%}%>
                                         </p>
+                                        <%}%>
+                                        </select>
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(7)%></strong></p>
+                                        <input type="submit" value="Add to cart" >
+                                        <%}%>
+
+                                        <% if(a.size()==0){ %>
+                                        Not available
+                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(7)%></strong></p>
+                                        <input type="submit" value="Add to cart" disabled="disabled">
+                                        </p>
+                                        <%}%>
+
 
                                         <input type="hidden" name="productPrice" value="${Products.writePrice(7)}"/>
-                                        <p class="price">Wholesale Price: <strong>$<%=Products.writePrice(7)%></strong></p>
                                         <input type="hidden" name="productId" value="${Products.getProductidInDB(7)}"/>
-                                        <input type="submit" value="Add to cart" >
                                     </li>
                                 </form>
                             </ul>

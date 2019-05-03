@@ -25,7 +25,7 @@ public class CartServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("Cart", new Product(prodName,prodPrice,prodSize,prodId));
             Product p =(Product) session.getAttribute("Cart");
-            //System.out.println(p);
+            System.out.println(p);
         }
         catch (NullPointerException e){
             e.printStackTrace();
