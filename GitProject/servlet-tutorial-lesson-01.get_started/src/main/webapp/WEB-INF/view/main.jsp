@@ -131,13 +131,12 @@
 
                                     <p><span>
                                         <input type="hidden" name="productName" value="${Products.writeName(0)}"/>
-                                        <input type="hidden" name="productSize" value="${Products.writeQuantitySize(0)}"/>
                                         Name: <span><%=Products.writeName(0)%></span><br />
                                         <% List<Integer> a = Products.getSizesList(0);%>
                                         Quantity Size:
                                         <% a = Products.getSizesList(0);
                                                 if(a.size()>0){ %>
-                                            <select>
+                                            <select name="size">
                                                     <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
                                     </p>
@@ -168,11 +167,10 @@
                                         <p>
                                             <input type="hidden" name="productName" value="${Products.writeName(1)}"/>
                                             Name: <span><%=Products.writeName(1)%></span><br />
-                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(1)}"/>
                                             Quantity Size:
                                             <% a = Products.getSizesList(1);
                                                 if(a.size()>0){ %>
-                                            <select>
+                                            <select name="size">
                                                     <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
                                         </p>
@@ -203,11 +201,10 @@
                                         <p>
                                             <input type="hidden" name="productName" value="${Products.writeName(2)}"/>
                                             Name: <span><%=Products.writeName(2)%></span><br />
-                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(2)}"/>
                                             Quantity Size:
                                             <% a = Products.getSizesList(2);
                                                 if(a.size()>0){ %>
-                                            <select>
+                                            <select name="size">
                                                     <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
                                         </p>
@@ -238,11 +235,10 @@
                                         <p>
                                             <input type="hidden" name="productName" value="${Products.writeName(3)}"/>
                                             Name: <span><%=Products.writeName(3)%></span><br />
-                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(3)}"/>
                                             Quantity Size:
                                             <% a = Products.getSizesList(3);
                                                 if(a.size()>0){ %>
-                                            <select>
+                                            <select name="size">
                                                     <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
                                         </p>
@@ -275,11 +271,10 @@
                                         <p>
                                             <input type="hidden" name="productName" value="${Products.writeName(4)}"/>
                                             Name: <span><%=Products.writeName(4)%></span><br />
-                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(4)}"/>
                                             Quantity Size:
                                             <% a = Products.getSizesList(4);
                                                 if(a.size()>0){ %>
-                                            <select>
+                                            <select name="size">
                                                     <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
                                         </p>
@@ -311,11 +306,10 @@
                                         <p>
                                             <input type="hidden" name="productName" value="${Products.writeName(5)}"/>
                                             Name: <span><%=Products.writeName(5)%></span><br />
-                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(5)}"/>
                                             Quantity Size:
                                             <% a = Products.getSizesList(5);
                                                 if(a.size()>0){ %>
-                                            <select>
+                                            <select name="size">
                                                     <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
                                         </p>
@@ -346,11 +340,10 @@
                                         <p>
                                             <input type="hidden" name="productName" value="${Products.writeName(6)}"/>
                                             Name: <span><%=Products.writeName(6)%></span><br />
-                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(6)}"/>
                                             Quantity Size:
                                             <% a = Products.getSizesList(6);
                                                 if(a.size()>0){ %>
-                                            <select>
+                                            <select name="size">
                                                     <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
                                         </p>
@@ -381,11 +374,10 @@
                                         <p>
                                             <input type="hidden" name="productName" value="${Products.writeName(7)}"/>
                                             Name: <span><%=Products.writeName(7)%></span><br />
-                                            <input type="hidden" name="productSize" value="${Products.writeQuantitySize(7)}"/>
                                             Quantity Size:
                                             <% a = Products.getSizesList(7);
                                                 if(a.size()>0){ %>
-                                            <select>
+                                            <select name="size">
                                                     <%for(int i=0;i<a.size();i++){%>
                                                 <option><%=a.get(i).toString()%></option>
                                         </p>

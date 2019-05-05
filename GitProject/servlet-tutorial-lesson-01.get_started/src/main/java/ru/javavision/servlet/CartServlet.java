@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "CartServlet")
 public class CartServlet extends HttpServlet {
@@ -17,15 +19,16 @@ public class CartServlet extends HttpServlet {
         try {
             String prodName=request.getParameter("productName");
             Integer prodPrice=Integer.parseInt(request.getParameter("productPrice"));
-            String prodSize=request.getParameter("productSize");
+            String prodSize=request.getParameter("size");
             Integer prodId=Integer.parseInt(request.getParameter("productId"));
             Product.setSumPrice(prodPrice);
-            //Product product = new Product(prodName,prodPrice,prodSize,prodId);
 
-            HttpSession session = request.getSession();
-            session.setAttribute("Cart", new Product(prodName,prodPrice,prodSize,prodId));
-            Product p =(Product) session.getAttribute("Cart");
-            System.out.println(p);
+       //     HttpSession session = request.getSession();
+            new Product(prodName,prodPrice,prodSize,prodId);
+           // session.setAttribute("Cart", Product.getProductsMap());
+
+         //   Product p =(Product) session.getAttribute("Cart");
+         //   System.out.println(p);
         }
         catch (NullPointerException e){
             e.printStackTrace();

@@ -1,5 +1,9 @@
 package ru.javavision.Models;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class Product {
     private String name;
     private Integer price;
@@ -17,6 +21,13 @@ public class Product {
         this.price = price;
         this.avaibleSizes = avaibleSizes;
         this.id = id;
+        products.add(this);
+    }
+
+    private static List<Product> products = new ArrayList();
+
+    public static List getProductsList(){
+        return products;
     }
 
     public String getName() {
@@ -64,5 +75,9 @@ public class Product {
                 ", avaibleSizes='" + avaibleSizes + '\'' +
                 ", id=" + id +
                 '}';
+    }
+
+    public static void removeProduct(int i){
+        products.remove(i);
     }
 }
