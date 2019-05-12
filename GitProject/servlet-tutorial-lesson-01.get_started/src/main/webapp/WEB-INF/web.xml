@@ -104,6 +104,15 @@
         <url-pattern>/RemoveProduct</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ConfirmOrder</servlet-name>
+        <servlet-class>ru.javavision.servlet.ConfirmOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfirmOrder</servlet-name>
+        <url-pattern>/ConfirmOrder</url-pattern>
+    </servlet-mapping>
+
 
 
 

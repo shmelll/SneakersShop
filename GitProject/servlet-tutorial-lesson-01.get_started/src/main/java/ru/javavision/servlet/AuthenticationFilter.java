@@ -29,6 +29,7 @@ public class AuthenticationFilter extends HttpServlet {
         if(AuthorizeWithDB.getAuth(uname, pass)){
             session.setAttribute("authorized", true);
             response.sendRedirect("/main");
+            session.setAttribute("userID", AuthorizeWithDB.getUserID());
         }
         else {response.sendRedirect("/main");}
     }

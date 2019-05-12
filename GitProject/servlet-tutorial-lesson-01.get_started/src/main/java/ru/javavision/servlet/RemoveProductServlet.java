@@ -12,9 +12,10 @@ import java.io.IOException;
 @WebServlet(name = "RemoveProductServlet")
 public class RemoveProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Product prod =(Product)Product.getProductsList().get(Integer.parseInt(request.getParameter("prodNum")));
+        Product.setSumPriceRemove(prod.getPrice());  //for change sumprice on main page
 
         Product.removeProduct(Integer.parseInt(request.getParameter("prodNum")));
-        System.out.println(Integer.parseInt(request.getParameter("prodNum")));
             response.sendRedirect("/cart");
 
     }

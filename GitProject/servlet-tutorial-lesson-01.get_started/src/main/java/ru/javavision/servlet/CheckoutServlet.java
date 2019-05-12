@@ -19,7 +19,6 @@ public class CheckoutServlet extends HttpServlet {
         //List<Account> accounts = getAccounts();
         //request.setAttribute("accountList",accounts);
         //in jsp ${accountList}
-        HttpSession session = request.getSession();
 
         response.sendRedirect("/cart");
 

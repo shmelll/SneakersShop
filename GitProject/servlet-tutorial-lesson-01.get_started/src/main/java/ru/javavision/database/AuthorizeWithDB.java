@@ -11,6 +11,11 @@ public class AuthorizeWithDB {
     private static Connection connection;
     private static String emailInDb = null;
     private static String passInDb = null;
+    private static int userID = 0;
+
+    public static int getUserID() {
+        return userID;
+    }
 
     public static boolean getAuth(String uname, String pass) {
         try {
@@ -29,6 +34,11 @@ public class AuthorizeWithDB {
                     }
                     if (passInDb.equals(pass)) {
                         System.out.println("Success authorization");
+                        String sqlUserID = "SELECT userid FROM user WHERE email='" + uname + "'";
+                        ResultSet rs3 = stmt.executeQuery(sqlUserID);
+                        if (rs3.next()) {  //перевод из resultset в стринг
+                            userID = rs3.getInt("userid");
+                        }
                         //TODO add action on success authorization
                         return true;
                     } else {

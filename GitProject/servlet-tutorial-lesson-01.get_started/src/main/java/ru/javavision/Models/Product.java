@@ -14,6 +14,9 @@ public class Product {
     public static void setSumPrice(Integer sumPrice) {
         Product.sumPrice+= sumPrice;
     }
+    public static void setSumPriceRemove(Integer sumPrice) {
+        Product.sumPrice-= sumPrice;
+    }
 
     public Product(String name, Integer price, String avaibleSizes, Integer id) {
 

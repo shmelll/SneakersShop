@@ -25,7 +25,7 @@ public class CartServlet extends HttpServlet {
 
        //     HttpSession session = request.getSession();
             new Product(prodName,prodPrice,prodSize,prodId);
-           // session.setAttribute("Cart", Product.getProductsMap());
+           // session.setAttribute("Cart", Product.getProductsList());
 
          //   Product p =(Product) session.getAttribute("Cart");
          //   System.out.println(p);

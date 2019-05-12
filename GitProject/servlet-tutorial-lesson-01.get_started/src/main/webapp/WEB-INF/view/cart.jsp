@@ -29,10 +29,6 @@
 for(int i=0;i<productList.size();i++){%>
 
     <div class="item">
-        <div class="buttons">
-            <span class="delete-btn"></span>
-            <span class="like-btn"></span>
-        </div>
 
         <div class="image">
             <img src="item-1.png" alt="" />
@@ -41,7 +37,6 @@ for(int i=0;i<productList.size();i++){%>
         <div class="description">
             <span><%=productList.get(i).getName() %></span>
             <span><%=productList.get(i).getAvaibleSizes()%></span>
-            <span>White</span>
         </div>
 <form action="RemoveProduct" method="post">
 
@@ -51,48 +46,23 @@ for(int i=0;i<productList.size();i++){%>
 </form>
 
         <div class="total-price">$<%=String.valueOf(productList.get(i).getPrice()) %></div>
+
+
     </div>
 
 <%
 }
 %>
+    <form action="ConfirmOrder" method="post">
+        <%if (Product.getProductsList().size()==0){%>
+        <input type="submit"  value="Сonfirm" disabled="disabled">
+        <%}%>
+        <%if (Product.getProductsList().size()>0){%>
+        <input type="submit"  value="Сonfirm">
+        <%}%>
 
-<script type="text/javascript">
-    $('.minus-btn').on('click', function(e) {
-        e.preventDefault();
-        var $this = $(this);
-        var $input = $this.closest('div').find('input');
-        var value = parseInt($input.val());
+    </form>
 
-        if (value > 1) {
-            value = value - 1;
-        } else {
-            value = 0;
-        }
 
-        $input.val(value);
-
-    });
-
-    $('.plus-btn').on('click', function(e) {
-        e.preventDefault();
-        var $this = $(this);
-        var $input = $this.closest('div').find('input');
-        var value = parseInt($input.val());
-
-        if (value < 100) {
-            value = value + 1;
-        } else {
-            value =100;
-        }
-
-        $input.val(value);
-    });
-
-    $('.like-btn').on('click', function() {
-        $(this).toggleClass('is-active');
-    });
-
-</script>
 </body>
 </html>
