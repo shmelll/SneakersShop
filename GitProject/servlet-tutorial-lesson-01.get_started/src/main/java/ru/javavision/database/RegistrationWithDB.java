@@ -11,7 +11,7 @@ public class RegistrationWithDB {
             Statement stmt = connection.createStatement();
             String sql = "SELECT email FROM user WHERE email='" + email + "'";
             ResultSet rs = stmt.executeQuery(sql);
-            //STEP 5: Extract data from result set
+            // Extract data from result set
             if (rs.next()) {
                 emailInDb = rs.getString("email");
             }

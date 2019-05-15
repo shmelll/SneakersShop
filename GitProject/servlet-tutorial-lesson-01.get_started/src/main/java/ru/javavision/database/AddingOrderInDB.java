@@ -14,7 +14,7 @@ public class AddingOrderInDB {
         try {
             connection = ConnectionActions.openConnection();
             Statement stmt = connection.createStatement();
-            String k = "insert into order (productid, userid, shoesize) values (?,?,?)";
+            String k = "insert into `order` (productid, userid, shoesize) values (?,?,?)"; // order-reserved name in db, that's why in quotes
             PreparedStatement ps = connection.prepareStatement(k);
             ps.setInt(1,productId);
             ps.setInt(2, userId);
