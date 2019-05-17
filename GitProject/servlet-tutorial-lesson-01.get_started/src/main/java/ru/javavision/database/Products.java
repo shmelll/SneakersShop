@@ -1,8 +1,7 @@
 package ru.javavision.database;
 
-import org.springframework.stereotype.Component;
+import ru.javavision.Models.Product;
 
-import javax.annotation.PostConstruct;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,48 +14,44 @@ import java.util.Map;
 public class Products {
     private static Connection connection = null;
     private static Statement stmt = null;
-    static ResultSet rs = null;
-    static List<String> productNames = new ArrayList<>();
-    static List<String> productPrices = new ArrayList<>();
-    // static List<String> picturesId = new ArrayList<>();
-    static List<String> productId = new ArrayList<>();
-    static Map<Integer, List<Integer>> productQuanSize = new HashMap<Integer, List<Integer>>();
+    private static Statement stmt2 = null;
+    static ResultSet rsSizes = null;
+    static ResultSet rsNamesWithId = null;
+
+    static List<Product> productsList = new ArrayList<>();
+
 
     public static void fillLists() throws SQLException {
         try {
             connection = ConnectionActions.openConnection();
             stmt = connection.createStatement();
+            stmt2 = connection.createStatement();
 
-            String sqlFindNames = "SELECT productname, productid FROM product";
-            rs = stmt.executeQuery(sqlFindNames);
+            String sqlFindNames = "SELECT productname, productid, productprice FROM product";
+            rsNamesWithId = stmt.executeQuery(sqlFindNames);
+            while (rsNamesWithId.next()) {
 
-            while (rs.next()) {
-                productNames.add(rs.getString("productname"));
-                productId.add(rs.getString("productid"));
-            }
-
-            String sqlFindPrices = "SELECT productprice FROM product";
-            rs = stmt.executeQuery(sqlFindPrices);
-            while (rs.next()) {
-                productPrices.add(rs.getString("productprice"));
-            }
-
-            // SELECT size from stock s  INNER JOIN product p ON s.productid = p.productid WHERE (s.productid=3) AND (quantity = 1)   --- запрос для получеия доступных размеров
-            for (int i = 0; i < productId.size(); i++) {
-                String sqlFindQuantitySize = "SELECT size from stock s  INNER JOIN product p ON s.productid = p.productid WHERE (s.productid=" + productId.get(i) + ") AND (quantity = 1)";
-                rs = stmt.executeQuery(sqlFindQuantitySize);
-                List<Integer> a = new ArrayList<>();
-                while (rs.next()) {
-                    a.add(Integer.parseInt(rs.getString("size")));
+                String sqlFindQuantitySize = "SELECT size FROM stock s  INNER JOIN product p ON s.productid = p.productid WHERE (s.productid=" + rsNamesWithId.getString("productid") + ") AND (quantity = 1)";
+                rsSizes = stmt2.executeQuery(sqlFindQuantitySize);
+                List<Integer> Sizes = new ArrayList();
+                while (rsSizes.next()){
+                    Sizes.add(Integer.parseInt(rsSizes.getString("size")));
                 }
-                productQuanSize.put(i, a);
+                productsList.add(new Product(rsNamesWithId.getString("productname"),
+                                            Integer.parseInt(rsNamesWithId.getString("productprice")),
+                                            null,
+                                            rsNamesWithId.getInt("productid"),
+                                            Sizes));
             }
 
         } catch (SQLException e) {
             //   e.printStackTrace();
         } finally {
-            if (rs != null) {
-                rs.close();
+            if (rsSizes != null) {
+                rsSizes.close();
+            }
+            if(rsNamesWithId!=null){
+                rsNamesWithId.close();
             }
             if (stmt != null) {
                 stmt.close();
@@ -66,32 +61,23 @@ public class Products {
     }
 
     public static String writeName(int countNames) {
-        return productNames.get(countNames);
+
+        return productsList.get(countNames).getName();
     }
 
     public static String writePrice(int countPrices) {
-        return productPrices.get(countPrices);
+        return Integer.toString(productsList.get(countPrices).getPrice());
     }
 
-
-    public static String writeQuantitySize(int countSize) {
-        String s1 = "";
-        List q = productQuanSize.get(countSize);
-
-        for (int i = 0; i < q.size(); i++) {
-            s1 +=" "+ q.get(i);
-        }
-        return s1;
-    }
 
     public static List<Integer> getSizesList(int c) {
-        return productQuanSize.get(c);
+
+        return productsList.get(c).getAllSizes();
     }
 
 
     public static String getProductidInDB(int num) {
-        return productId.get(num);
+        return Integer.toString(productsList.get(num).getId());
     }
-
 
 }

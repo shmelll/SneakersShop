@@ -24,7 +24,7 @@ public class CartServlet extends HttpServlet {
             Product.setSumPrice(prodPrice);
 
        //     HttpSession session = request.getSession();
-            new Product(prodName,prodPrice,prodSize,prodId);
+            new Product(prodName,prodPrice,prodSize,prodId,null).addThisProdInList();
            // session.setAttribute("Cart", Product.getProductsList());
 
          //   Product p =(Product) session.getAttribute("Cart");

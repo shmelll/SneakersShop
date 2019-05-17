@@ -93,7 +93,6 @@
                     <form action="Checkout" method="post">
                     <input type="submit" value="Checkout" >
                     </form>
-					<a href="#">Details</a>
 				</span>
             </div>
         </div>

@@ -9,6 +9,7 @@ public class Product {
     private Integer price;
     private String avaibleSizes;
     private Integer id;
+    private List<Integer> allSizes;
     private static Integer sumPrice=0;
 
     public static void setSumPrice(Integer sumPrice) {
@@ -18,13 +19,20 @@ public class Product {
         Product.sumPrice-= sumPrice;
     }
 
-    public Product(String name, Integer price, String avaibleSizes, Integer id) {
+    public Product(String name, Integer price, String avaibleSizes, Integer id, List<Integer> allSizes) {
 
         this.name = name;
         this.price = price;
         this.avaibleSizes = avaibleSizes;
         this.id = id;
-        products.add(this);
+        this.allSizes=allSizes;
+       // products.add(this);
+    }
+
+    public void addThisProdInList(){products.add(this);}
+
+    public List<Integer> getAllSizes() {
+        return allSizes;
     }
 
     private static List<Product> products = new ArrayList();
